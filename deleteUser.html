@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador - Apagar Usuários</title>
+    <!-- Adicionar o SDK do Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-functions.js"></script>
+    <link rel="stylesheet" href="css/stylesglobal.css">
+</head>
+<body>
+    <header id="home">
+        <h1>Gerenciar Usuários</h1>
+        <p id="adminStatus">Verificando administrador...</p>
+    </header>
+    <nav class="main-nav">
+        <button class="menu-toggle" aria-expanded="false" aria-label="Menu">
+            ☰
+        </button>
+        <ul id="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="admin.html">Administrador</a></li>
+            <li><a href="reset-password.html">Redefinir senha</a></li>
+            <li id="logoutButton" style="display:none;"><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+    </nav>
+    <main class="container-main">
+        <section id="deleteUserSection" class="form-container">
+            <h2>Excluir Usuário</h2>
+            <div id="userList"></div>
+            <p id="deleteMessage"></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; <span id="copyright-year"></span> Escalas Médicas. Todos os direitos reservados. | <a href="mailto:calculospediatricos@gmail.com">calculospediatricos@gmail.com</a></p>
+    </footer>
+
+    <script src="js/menuresponsivo.js"></script> <!-- Script para o menu responsivo -->
+    <script src="js/configfirebase.js"></script>
+    <script src="js/copiright.js"></script>
+    <script src="js/logout.js"></script>
+    <script src="js/deleteUser.js"></script>
+    <script>
+        // Verificar se o usuário está autenticado e se é administrador
+        document.addEventListener('DOMContentLoaded', function() {
+            var auth = firebase.auth();
+            auth.onAuthStateChanged(function(user) {
+                if (user) {
+                    user.getIdTokenResult().then((idTokenResult) => {
+                        if (idTokenResult.claims.admin) {
+                            document.getElementById('logoutButton').style.display = 'block';
+                        } else {
+                            window.location.href = 'index.html';
+                        }
+                    });
+                } else {
+                    // Se o usuário não estiver autenticado, redirecionar para a página de login
+                    window.location.href = 'index.html';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

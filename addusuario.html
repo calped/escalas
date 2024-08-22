@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador - Adicionar Usuário</title>
+    <link rel="stylesheet" href="css/stylesglobal.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="js/configfirebase.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Adicionar Usuário</h1>
+        <p id="adminStatus">Verificando administrador...</p>
+    </header>
+    <nav class="main-nav">
+        <button class="menu-toggle" aria-expanded="false" aria-label="Menu">
+            ☰
+        </button>
+        <ul id="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="reset-password.html">Redefinir senha</a></li>
+            <li><a href="admin.html">Administrador</a></li> 
+            <li><a href="calendario.html">Calendário</a></li>
+            <li id="logoutButton" style="display:none;"><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="userSection" style="display:none;" class="form-container">
+            <h2>Adicionar Usuário</h2>
+            <form id="addUserForm">
+                <label for="userEmail">Email:</label>
+                <input type="email" id="userEmail" required>
+                
+                <label for="userName">Nome:</label>
+                <input type="text" id="userName" required>
+                
+                <label for="userRole">Função:</label>
+                <select id="userRole">
+                    <option value="user">Usuário</option>
+                    <option value="admin">Administrador</option>
+                </select>
+                
+                <button type="submit">Adicionar Usuário</button>
+            </form>
+            <p id="userMessage"></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; <span id="copyright-year"></span> Escalas Médicas. Todos os direitos reservados. | <a href="mailto:calculospediatricos@gmail.com">calculospediatricos@gmail.com</a></p>
+    </footer>
+
+    <script src="js/menuresponsivo.js"></script> <!-- Script para o menu responsivo -->
+    <script src="js/copiright.js"></script>
+    <script src="js/logout.js"></script>
+    <script src="js/addusuario.js"></script>
+    <script>
+        // Verificar se o usuário está autenticado
+        document.addEventListener('DOMContentLoaded', function() {
+            var auth = firebase.auth();
+            auth.onAuthStateChanged(function(user) {
+                if (!user) {
+                    // Se o usuário não estiver autenticado, redirecionar para a página de login
+                    window.location.href = 'index.html';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

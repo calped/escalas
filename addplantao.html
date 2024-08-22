@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Plantão - Escalas Médicas</title>
+    <link rel="stylesheet" href="css/stylesglobal.css">
+    <!-- Adicionar o SDK do Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+</head>
+<body>
+    <header id="home">
+        <h1>Adicionar Plantão</h1>
+        <p id="adminStatus">Verificando administrador...</p>
+    </header>
+    <nav class="main-nav">
+        <button class="menu-toggle" aria-expanded="false" aria-label="Menu">
+            ☰
+        </button>
+        <ul id="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="calendario.html">Calendário</a></li>
+            <li id="logoutButton" style="display:none;"><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="plantaoSection" class="form-container">
+            <h2>Adicionar Plantão</h2>
+            <form id="addPlantaoForm">
+                <label for="plantaoData">Data do Plantão:</label>
+                <input type="date" id="plantaoData" required><br><br>
+
+                <label for="medico">Médico:</label>
+                <select id="medico" required>
+                    <!-- Médicos serão carregados aqui -->
+                </select><br><br>
+
+                <label for="local">Local do Plantão:</label>
+                <select id="local" name="local">
+                    <option value="ALCON">ALCON</option>
+                    <option value="SALA DE PARTO">SALA DE PARTO</option>
+                    <option value="SALA VERMELHA">SALA VERMELHA</option>
+                    <option value="UCI NEONATAL">UCI NEONATAL</option>
+                    <option value="UTI NEONATAL1">UTI NEONATAL1</option>
+                    <option value="UTI NEONATAL2">UTI NEONATAL2</option>
+                    <option value="UTI PEDIÁTRICA">UTI PEDIÁTRICA</option>
+                </select><br><br>
+
+                <label for="horario">Horário:</label>
+                <select id="horario" name="horario">
+                    <option value="7h às 13h">7h às 13h</option>
+                    <option value="13h às 19h">13h às 19h</option>
+                    <option value="19h às 7h">19h às 7h</option>
+                    <option value="8h às 12h">8h às 12h</option>
+                </select><br><br>
+
+                <label for="plantaoStatus">Status:</label>
+                <select id="plantaoStatus">
+                    <option value="confirmado">Confirmado</option>
+                    <option value="pendente">Pendente</option>
+                </select><br><br>
+
+                <button type="submit">Adicionar Plantão</button>
+            </form>
+            <p id="plantaoMessage" style="color: green; margin-top: 10px;"></p> <!-- Mensagem de sucesso -->
+        </section>
+    </main>
+    <footer>
+        <p>&copy; <span id="copyright-year"></span> Escalas Médicas. Todos os direitos reservados. | <a href="mailto:calculospediatricos@gmail.com">calculospediatricos@gmail.com</a></p>
+    </footer>
+
+    <script src="js/menuresponsivo.js"></script> <!-- Script para o menu responsivo -->
+    <script src="js/configfirebase.js"></script>
+    <script src="js/logout.js"></script>
+    <script src="js/addplantao.js"></script>
+</body>
+</html>

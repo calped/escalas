@@ -1,0 +1,497 @@
+:root {
+    /* Definição de cores globais para uso em todo o documento */
+    --color-bg: #F0F8FF; /* Cor de fundo: AliceBlue */
+    --color-primary: #007BFF; /* Cor primária: Azul */
+    --color-secondary: #0964b4; /* Cor secundária: Cinza */
+    --color-accent: #28A745; /* Cor de destaque: Verde */
+    --color-accent-dark: #218838; /* Cor de destaque escuro: Verde Escuro */
+    --color-text: #2F4F4F; /* Cor do texto: DarkSlateGray */
+    --color-white: #FFFFFF; /* Cor branca */
+    --color-light-gray: #F8F9FA; /* Cor cinza claro */
+    --color-lighter-gray: #E9ECEF; /* Cor cinza muito claro */
+    --color-link: #FFD700; /* Cor dos links: Dourado */
+    --color-link-hover: #FF4500; /* Cor dos links ao passar o mouse: Laranja Vermelho */
+    --color-link-visited: #FF4500; /* Cor dos links visitados: Vermelho */
+}
+:root {
+    /* Definição de cores globais para uso em todo o documento */
+    --color-bg: #E8F5E9; /* Cor de fundo: Verde muito claro */
+    --color-primary: #4CAF50; /* Cor primária: Verde */
+    --color-secondary: #388E3C; /* Cor secundária: Verde Escuro */
+    --color-accent: #66BB6A; /* Cor de destaque: Verde claro */
+    --color-accent-dark: #2E7D32; /* Cor de destaque escuro: Verde ainda mais escuro */
+    --color-text: #1B5E20; /* Cor do texto: Verde Escuro (mais intenso) */
+    --color-white: #FFFFFF; /* Cor branca */
+    --color-light-gray: #F1F8E9; /* Cor cinza claro com um toque de verde */
+    --color-lighter-gray: #DCEDC8; /* Cor cinza muito claro com um tom de verde */
+    --color-link: #81C784; /* Cor dos links: Verde Médio */
+    --color-link-hover: #388E3C; /* Cor dos links ao passar o mouse: Verde Escuro */
+    --color-link-visited: #66BB6A; /* Cor dos links visitados: Verde Claro */
+}
+
+
+/* Estilos básicos do corpo do documento */
+body {
+    font-family: 'Arial', sans-serif; /* Fonte padrão */
+    margin: 0; /* Remove a margem padrão */
+    padding: 0; /* Remove o preenchimento padrão */
+    background-color: var(--color-bg); /* Define a cor de fundo */
+    color: var(--color-text); /* Define a cor do texto */
+}
+
+/* Estilos para o cabeçalho e rodapé */
+header, footer {
+    background: linear-gradient(180deg, var(--color-primary), var(--color-secondary)); /* Gradiente de cor no fundo */
+    color: var(--color-white); /* Cor do texto */
+    padding: 20px; /* Preenchimento interno */
+    text-align: center; /* Centraliza o texto */
+    width: 100%; /* Largura total */
+    box-sizing: border-box; /* Inclui padding e border na largura total */
+    border-radius: 8px; /* Borda arredondada */
+    margin-bottom: 20px; /* Espaçamento inferior */
+}
+
+/* Estilos para os parágrafos dentro do header e footer */
+header p, footer p {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    text-align: center; /* Centraliza o texto */
+    margin: 0; /* Remove a margem */
+    width: 100%; /* Largura total */
+}
+
+/* Estilos para links no rodapé */
+footer a {
+    color: var(--color-link); /* Cor do link */
+    text-decoration: none; /* Remove sublinhado */
+    transition: color 0.3s; /* Transição suave na mudança de cor */
+}
+
+/* Cor dos links visitados no rodapé */
+footer a:visited {
+    color: var(--color-link-visited); /* Cor do link visitado */
+}
+
+/* Cor dos links ao passar o mouse no rodapé */
+footer a:hover {
+    color: var(--color-link-hover); /* Cor do link ao passar o mouse */
+}
+
+/* Estilos para imagens responsivas */
+.responsive-image {
+    width: 100%; /* Largura total */
+    height: auto; /* Altura automática */
+    margin-bottom: 20px; /* Espaçamento inferior */
+    border-radius: 4px; /* Borda arredondada */
+}
+
+/* Estilos para imagens pequenas */
+.small-image {
+    width: 150px; /* Largura fixa */
+    height: auto; /* Altura automática */
+    display: block; /* Bloqueia o elemento */
+    margin: 0 auto 20px; /* Centraliza a imagem com margem inferior */
+}
+
+/* Estilos para imagens médias */
+.medium-image {
+    max-width: 300px; /* Largura máxima */
+    width: 100%; /* Largura total */
+    height: auto; /* Altura automática */
+    display: block; /* Bloqueia o elemento */
+    margin: 0 auto 20px; /* Centraliza a imagem com margem inferior */
+}
+
+/* Estilos para a navegação principal */
+.main-nav {
+    background: linear-gradient(180deg, var(--color-primary), var(--color-secondary)); /* Gradiente de cor no fundo */
+    color: var(--color-white); /* Cor do texto */
+    padding: 10px 20px; /* Preenchimento interno */
+    text-align: center; /* Centraliza o texto */
+    position: relative; /* Posição relativa */
+    border-radius: 8px; /* Borda arredondada */
+    margin-top: 20px; /* Espaçamento superior */
+}
+
+/* Estilos para o botão de menu em telas pequenas */
+.menu-toggle {
+    display: none; /* Esconde o botão por padrão */
+    background: linear-gradient(180deg, var(--color-primary), var(--color-secondary)); /* Gradiente de cor no fundo */
+    color: var(--color-white); /* Cor do texto */
+    border: none; /* Remove a borda */
+    font-size: 24px; /* Tamanho da fonte */
+    cursor: pointer; /* Cursor em forma de mãozinha */
+    padding: 10px; /* Preenchimento interno */
+    border-radius: 4px; /* Borda arredondada */
+    position: absolute; /* Posição absoluta */
+    right: 20px; /* Distância da direita */
+    top: 10px; /* Distância do topo */
+}
+
+/* Estilos para o botão de menu ao passar o mouse */
+.menu-toggle:hover {
+    background: linear-gradient(45deg, var(--color-primary), var(--color-secondary)); /* Gradiente de cor ao passar o mouse */
+    border-radius: 4px; /* Borda arredondada */
+}
+
+/* Estilos para a lista de navegação */
+.main-nav ul {
+    background: linear-gradient(180deg, var(--color-primary), var(--color-secondary)); /* Gradiente de cor no fundo */
+    list-style-type: none; /* Remove os marcadores da lista */
+    padding: 0; /* Remove o preenchimento */
+    margin: 0; /* Remove a margem */
+    display: flex; /* Alinha os itens em linha */
+    justify-content: center; /* Centraliza os itens */
+    flex-wrap: wrap; /* Permite quebra de linha */
+    border-radius: 4px; /* Borda arredondada */
+}
+
+/* Estilos para os itens da lista de navegação */
+.main-nav li {
+    margin: 0 10px; /* Espaçamento entre os itens */
+}
+
+/* Estilos para os links da navegação */
+.main-nav a {
+    color: var(--color-white); /* Cor do texto */
+    text-decoration: none; /* Remove sublinhado */
+    padding: 10px 15px; /* Preenchimento interno */
+    display: block; /* Bloqueia o elemento */
+}
+
+/* Estilos para os links ao passar o mouse na navegação */
+.main-nav a:hover {
+    background: linear-gradient(180deg, var(--color-primary), var(--color-secondary)); /* Gradiente de cor ao passar o mouse */
+    border-radius: 4px; /* Borda arredondada */
+}
+
+/* Estilos para o container principal */
+.container {
+    margin: 20px auto; /* Centraliza o container com espaçamento superior e inferior */
+    padding: 20px; /* Preenchimento interno */
+    max-width: 800px; /* Largura máxima */
+    background-color: var(--color-white); /* Cor de fundo */
+    border-radius: 8px; /* Borda arredondada */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+    text-align: justify; /* Justifica o texto */
+}
+
+/* Estilos para o elemento main */
+main {
+    padding: 20px; /* Preenchimento interno */
+}
+
+/* Estilos para as seções */
+section {
+    margin-bottom: 40px; /* Espaçamento inferior */
+}
+
+/* Estilos para os títulos de segundo nível */
+h2 {
+    text-align: center; /* Centraliza o texto */
+    margin-bottom: 20px; /* Espaçamento inferior */
+    color: var(--color-primary); /* Cor do texto */
+}
+
+/* Estilos para os parágrafos */
+p {
+    text-align: justify; /* Justifica o texto */
+}
+
+/* Estilos para formulários */
+.form-container {
+    max-width: 600px; /* Largura máxima */
+    margin: 0 auto; /* Centraliza o container */
+    padding: 20px; /* Preenchimento interno */
+    background-color: var(--color-white); /* Cor de fundo */
+    border-radius: 8px; /* Borda arredondada */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+/* Estilos para o formulário */
+.form-container form {
+    display: flex; /* Flexbox para o formulário */
+    flex-direction: column; /* Alinha os itens em coluna */
+}
+
+/* Estilos para os rótulos dos formulários */
+.form-container label {
+    margin-bottom: 5px; /* Espaçamento inferior */
+    font-weight: bold; /* Negrito */
+}
+
+/* Estilos para os inputs, selects e botões do formulário */
+.form-container input,
+.form-container select,
+.form-container button {
+    margin-bottom: 15px; /* Espaçamento inferior */
+    padding: 10px; /* Preenchimento interno */
+    border: 1px solid #ccc; /* Borda cinza */
+    border-radius: 4px; /* Borda arredondada */
+    font-size: 16px; /* Tamanho da fonte */
+}
+
+/* Estilos para os botões do formulário */
+.form-container button {
+    background-color: var(--color-accent); /* Cor de fundo */
+    color: var(--color-white); /* Cor do texto */
+    border: none; /* Remove a borda */
+    cursor: pointer; /* Cursor em forma de mãozinha */
+    width: auto; /* Largura automática */
+}
+
+/* Estilos para os botões ao passar o mouse */
+.form-container button:hover {
+    background-color: var(--color-accent-dark); /* Cor de fundo escura ao passar o mouse */
+}
+
+/* Estilos para a exibição dos resultados */
+.result-container {
+    max-width: 600px; /* Largura máxima */
+    margin: 20px auto; /* Centraliza o container com espaçamento superior e inferior */
+    padding: 20px; /* Preenchimento interno */
+    background-color: var(--color-light-gray); /* Cor de fundo */
+    border-radius: 8px; /* Borda arredondada */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+/* Estilos para os parágrafos dentro dos resultados */
+.result-box p {
+    margin: 0 0 10px; /* Margem inferior */
+}
+
+
+
+
+/* Estilos responsivos para telas menores */
+@media (max-width: 768px) {
+    /* Mostra o botão de menu em telas pequenas */
+    .menu-toggle {
+        display: block; /* Exibe o botão */
+    }
+
+    /* Estilos para a lista de navegação em telas pequenas */
+    .main-nav ul {
+        display: none; /* Esconde a lista por padrão */
+        flex-direction: column; /* Alinha os itens em coluna */
+        align-items: center; /* Centraliza os itens */
+        background-color: var(--color-primary); /* Cor de fundo */
+        width: 100%; /* Largura total */
+        position: absolute; /* Posição absoluta */
+        top: 50px; /* Distância do topo */
+        left: 0; /* Alinhamento à esquerda */
+        padding-bottom: 10px; /* Preenchimento inferior */
+    }
+
+    /* Exibe a lista de navegação quando ativa */
+    .main-nav ul.show {
+        display: flex; /* Exibe a lista */
+    }
+
+    /* Estilos para os itens da lista em telas pequenas */
+    .main-nav li {
+        margin: 10px 0; /* Espaçamento vertical */
+    }
+
+    /* Estilos para os links na navegação em telas pequenas */
+    .main-nav a {
+        padding: 10px 20px; /* Preenchimento interno */
+    }
+
+    /* Estilos para os links ao passar o mouse em telas pequenas */
+    .main-nav a:hover {
+        background-color: var(--color-accent-dark); /* Cor de fundo escura ao passar o mouse */
+        border-radius: 4px; /* Borda arredondada */
+    }
+
+    /* Estilos para o container do formulário em telas pequenas */
+    .form-container {
+        padding: 10px; /* Preenchimento interno */
+    }
+
+    /* Estilos para inputs, selects e botões do formulário em telas pequenas */
+    .form-container input,
+    .form-container select,
+    .form-container button {
+        font-size: 14px; /* Tamanho da fonte */
+        padding: 8px; /* Preenchimento interno */
+    }
+
+    /* Estilos para botões do formulário em telas pequenas */
+    .form-container button {
+        font-size: 14px; /* Tamanho da fonte */
+        padding: 10px; /* Preenchimento interno */
+        width: auto; /* Largura automática */
+    }
+
+    /* Estilos para o container de resultados em telas pequenas */
+    .result-container {
+        padding: 10px; /* Preenchimento interno */
+    }
+
+    /* Estilos para parágrafos dentro dos resultados em telas pequenas */
+    .result-box p {
+        font-size: 14px; /* Tamanho da fonte */
+    }
+}
+
+/* Estilos para o cabeçalho do calendário */
+#calendarHeader {
+    text-align: center; /* Centraliza o texto */
+    margin-bottom: 10px; /* Espaçamento inferior */
+}
+
+/* Estilos para os dias da semana no calendário */
+#daysOfWeek {
+    display: grid; /* Layout em grid */
+    grid-template-columns: repeat(7, 1fr); /* Divisão em 7 colunas */
+    text-align: center; /* Centraliza o texto */
+    font-weight: bold; /* Texto em negrito */
+    margin-bottom: 10px; /* Espaçamento inferior */
+}
+
+/* Estilos para os dias do calendário */
+#calendar {
+    display: grid; /* Layout em grid */
+    grid-template-columns: repeat(7, 1fr); /* Divisão em 7 colunas */
+    gap: 5px; /* Espaçamento entre os itens */
+    margin: 20px; /* Margem ao redor */
+}
+
+/* Estilos para cada célula do calendário */
+.day {
+    border: 1px solid #ccc; /* Borda cinza */
+    padding: 10px; /* Preenchimento interno */
+    text-align: center; /* Centraliza o texto */
+    cursor: pointer; /* Cursor em forma de mãozinha */
+}
+
+/* Estilos para os detalhes dos plantões */
+#plantaoDetails {
+    margin-top: 20px; /* Espaçamento superior */
+}
+
+/* Estilos para os dias em que o usuário tem plantão */
+.user-plantao {
+    background-color: var(--color-link); /* Fundo dourado claro */
+    border-radius: 50%; /* Borda arredondada */
+    border: 2px solid #FF8C00; /* Borda laranja */
+}
+
+/* Estilos para a página de boas-vindas */
+
+/* Estilização do container principal */
+.container-main {
+    display: flex; /* Layout em flexbox */
+    flex-direction: column; /* Alinha os itens em coluna */
+    align-items: center; /* Centraliza os itens */
+    justify-content: center; /* Centraliza verticalmente */
+    min-height: 50vh; /* Altura mínima */
+    text-align: center; /* Centraliza o texto */
+    padding: 10px; /* Preenchimento interno */
+    margin: 0 auto;  /* Centraliza horizontalmente */
+}
+
+/* Estilos para o texto de boas-vindas */
+.container-main p {
+    font-size: 1.2em; /* Tamanho da fonte */
+    margin-bottom: 10px; /* Espaçamento inferior */
+}
+
+/* Estilos para o container de links */
+.container-links {
+    display: flex; /* Layout em flexbox */
+    flex-direction: column; /* Alinha os itens em coluna */
+    gap: 15px; /* Espaçamento entre os itens */
+    align-items: center; /* Centraliza os itens */
+    width: 100%; /* Largura total */
+    max-width: 400px; /* Largura máxima */
+}
+
+/* Estilização dos botões */
+.container-links .button {
+    display: block; /* Bloqueia o elemento */
+    padding: 10px 20px; /* Preenchimento interno */
+    background-color: #007BFF; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    text-decoration: none; /* Remove sublinhado */
+    border-radius: 5px; /* Borda arredondada */
+    font-size: 1em; /* Tamanho da fonte */
+    text-align: center; /* Centraliza o texto */
+    width: 100%; /* Largura total */
+    max-width: 300px; /* Largura máxima */
+    box-sizing: border-box; /* Inclui padding e border na largura total */
+}
+
+/* Ajuste para o tamanho dos botões */
+.container-links .button {
+    width: 100%; /* Largura total */
+}
+
+/* Estilos para os botões ao passar o mouse */
+.container-links .button:hover {
+    background-color: #0056b3; /* Cor de fundo escura ao passar o mouse */
+    transition: background-color 0.3s ease; /* Transição suave de cor */
+}
+
+/* Estilos para os dias com plantões confirmados */
+.plantao-day {
+    background-color: #81C784; /* Fundo azul */
+    color: white; /* Cor do texto */
+    border-radius: 5px; /* Borda arredondada */
+    text-align: center; /* Centraliza o texto */
+}
+
+/* Estilos para os dias com plantões disponíveis */
+.plantao-disponivel-day {
+    background-color: #FF8C00; /* Fundo verde */
+    color: white; /* Cor do texto */
+    border-radius: 5px; /* Borda arredondada */
+    text-align: center; /* Centraliza o texto */
+}
+
+/* Estilos para o botão de "Assumir Plantão" */
+.assumir-btn {
+    background-color: #28a745; /* Fundo verde */
+    color: white; /* Cor do texto */
+    border: none; /* Remove a borda */
+    padding: 5px 5px; /* Preenchimento interno */
+    border-radius: 5px; /* Borda arredondada */
+    cursor: pointer; /* Cursor em forma de mãozinha */
+    font-size: 1em; /* Tamanho da fonte */
+}
+
+/* Estilos para o botão "Assumir Plantão" ao passar o mouse */
+.assumir-btn:hover {
+    background-color: #218838; /* Fundo verde escuro ao passar o mouse */
+}
+
+/* Estilos para o botão de apagar */
+.apagar-btn {
+    padding: 5px 10px; /* Preenchimento interno */
+    background-color: #ed0a0a; /* Fundo vermelho */
+    color: white; /* Cor do texto */
+    border: none; /* Remove a borda */
+    border-radius: 5px; /* Borda arredondada */
+    cursor: pointer; /* Cursor em forma de mãozinha */
+}
+.reset-button {
+    background-color: var(--color-accent); /* Fundo verde claro */
+    color: var(--color-white); /* Texto branco */
+    width: 100%; /* Faz o botão ocupar toda a largura do container */
+    margin-top: 10px; /* Espaçamento superior */
+    padding: 10px; /* Preenchimento */
+    border: none; /* Remove bordas */
+    border-radius: 4px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor de mãozinha */
+    text-align: center; /* Centraliza o texto */
+    box-sizing: border-box; /* Inclui padding na largura */
+    display: block; /* Garante que o botão seja um elemento em bloco */
+}
+
+.reset-button:hover {
+    background-color: var(--color-accent-dark); /* Fundo verde mais escuro ao passar o mouse */
+}

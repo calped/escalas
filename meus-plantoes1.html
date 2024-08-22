@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário de Plantões</title>
+    <link rel="stylesheet" href="css/stylesglobal1.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Calendário de Plantões</h1>
+        <p id="adminStatus">Verificando usuário...</p>
+    </header>
+    <nav class="main-nav">
+        <button class="menu-toggle" aria-expanded="false" aria-label="Menu">
+            ☰
+        </button>
+        <ul id="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="reset-password.html">Redefinir senha</a></li>
+            <li><a href="admin.html">Administrador</a></li>
+            <li><a href="calendario.html">Calendário</a></li>
+            <li id="logoutButton" style="display:none;"><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div id="calendarHeader">
+            <button id="prevMonth" style="padding: 10px 10px; background-color: #007BFF; color: white; text-decoration: none; border-radius: 5px; font-size: 1em;">Anterior</button>
+            <h2 id="monthYear"></h2>
+            <button id="nextMonth" style="padding: 10px 10px; background-color: #007BFF; color: white; text-decoration: none; border-radius: 5px; font-size: 1em;">Próximo</button>
+            <div id="daysOfWeek">
+                <div>Dom</div>
+                <div>Seg</div>
+                <div>Ter</div>
+                <div>Qua</div>
+                <div>Qui</div>
+                <div>Sex</div>
+                <div>Sáb</div>
+            </div>
+        </div>
+        <div id="calendar"></div>
+        <div id="plantaoDetails" style="display:none;">
+            <h2>Plantões para <span id="selectedDate"></span></h2>
+            <ul id="plantaoList"></ul>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; <span id="copyright-year"></span> Escalas Médicas. Todos os direitos reservados. | <a href="mailto:calculospediatricos@gmail.com">calculospediatricos@gmail.com</a></p>
+    </footer>
+
+    <script src="js/menuresponsivo.js"></script> <!-- Script para o menu responsivo -->
+    <script src="js/configfirebase.js"></script>
+    <script src="js/logout.js"></script>
+    <script src="js/copiright.js"></script>
+    <script src="js/meus-plantoes1.js"></script>
+
+</body>
+</html>

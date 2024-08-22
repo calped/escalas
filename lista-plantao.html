@@ -15,10 +15,14 @@
         <p id="adminStatus">Verificando administrador...</p>
     </header>
     <nav class="main-nav">
+        <button class="menu-toggle" aria-expanded="false" aria-label="Menu">
+            ☰
+        </button>
         <ul id="menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="admin.html">Administrador</a></li>
             <li><a href="calendario.html">Calendário</a></li>
+            
             <li><a href="reset-password.html">Redefinir senha</a></li>
             <li id="logoutButton" style="display:none;"><a href="#" onclick="logout()">Logout</a></li>
         </ul>
@@ -57,7 +61,7 @@
     <footer>
         <p>&copy; <span id="copyright-year"></span> Escalas Médicas. Todos os direitos reservados. | <a href="mailto:calculospediatricos@gmail.com">CalPed - Calculadoras Pediátricas</a></p>
     </footer>
-
+    <script src="js/menuresponsivo.js"></script> <!-- Script para o menu responsivo -->
     <script src="js/configfirebase.js"></script>
     <script src="js/logout.js"></script>
     <script src="js/lista-plantao1.js"></script>

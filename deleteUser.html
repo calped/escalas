@@ -9,12 +9,12 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-functions.js"></script>
-    <link rel="stylesheet" href="css/stylesglobal.css">
+    <link rel="stylesheet" href="css/stylesglobal1.css">
 </head>
 <body>
     <header id="home">
         <h1>Gerenciar Usuários</h1>
-        <p id="adminStatus">Verificando administrador...</p>
+        <p id="adminStatus">Verificando...</p>
     </header>
     <nav class="main-nav">
         <button class="menu-toggle" aria-expanded="false" aria-label="Menu">
@@ -23,6 +23,8 @@
         <ul id="menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="admin.html">Administrador</a></li>
+            <li><a href="calendario.html">Calendário</a></li>
+            
             <li><a href="reset-password.html">Redefinir senha</a></li>
             <li id="logoutButton" style="display:none;"><a href="#" onclick="logout()">Logout</a></li>
         </ul>
@@ -35,7 +37,7 @@
         </section>
     </main>
     <footer>
-        <p>&copy; <span id="copyright-year"></span> Escalas Médicas. Todos os direitos reservados. | <a href="mailto:calculospediatricos@gmail.com">calculospediatricos@gmail.com</a></p>
+        <p>&copy; <span id="copyright-year"></span> Escalas Médicas. Todos os direitos reservados. | <a href="mailto:calculospediatricos@gmail.com">CalPed - Calculadoras Pediátricas</a></p>
     </footer>
 
     <script src="js/menuresponsivo.js"></script> <!-- Script para o menu responsivo -->
@@ -44,24 +46,31 @@
     <script src="js/logout.js"></script>
     <script src="js/deleteUser.js"></script>
     <script>
-        // Verificar se o usuário está autenticado e se é administrador
         document.addEventListener('DOMContentLoaded', function() {
-            var auth = firebase.auth();
-            auth.onAuthStateChanged(function(user) {
-                if (user) {
-                    user.getIdTokenResult().then((idTokenResult) => {
-                        if (idTokenResult.claims.admin) {
-                            document.getElementById('logoutButton').style.display = 'block';
-                        } else {
-                            window.location.href = 'index.html';
-                        }
-                    });
-                } else {
-                    // Se o usuário não estiver autenticado, redirecionar para a página de login
-                    window.location.href = 'index.html';
+    if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+    }
+
+    var auth = firebase.auth();
+
+    auth.onAuthStateChanged(function(user) {
+        if (user) {
+            user.getIdTokenResult().then((idTokenResult) => {
+                if (!idTokenResult.claims.admin) {
+                    // Se o usuário não for administrador, redirecionar ou exibir mensagem
+                    window.location.href = 'acesso-negado.html'; // Redireciona para uma página de acesso negado
+                    // Ou exibe uma mensagem de acesso negado
+                    // document.body.innerHTML = '<h1>Acesso negado. Somente administradores podem acessar esta página.</h1>';
                 }
+            }).catch((error) => {
+                console.error('Erro ao verificar as claims do usuário:', error);
             });
-        });
-    </script>
+        } else {
+            window.location.href = 'index.html'; // Redireciona para a página de login se o usuário não estiver autenticado
+        }
+    });
+});
+
+</script> 
 </body>
 </html>

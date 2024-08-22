@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <td>${plantao.horario}</td>
                         <td>${medicoNome}</td>
                         <td>${plantao.status}</td>
-                        <td><button data-id="${doc.id}" class="deleteBtn" style="background-color: #FFD700; color: black;">Apagar</button></td>
+                        <td><button data-id="${doc.id}" class="apagar-btn" >Apagar</button></td>
                     `;
 
                     plantaoTableBody.appendChild(row);

@@ -415,7 +415,7 @@ p {
 .container-links .button {
     display: block; /* Bloqueia o elemento */
     padding: 10px 20px; /* Preenchimento interno */
-    background-color: #007BFF; /* Cor de fundo */
+    background-color: var(--color-primary); /* Cor primária: Verde */
     color: white; /* Cor do texto */
     text-decoration: none; /* Remove sublinhado */
     border-radius: 5px; /* Borda arredondada */
@@ -433,7 +433,7 @@ p {
 
 /* Estilos para os botões ao passar o mouse */
 .container-links .button:hover {
-    background-color: #0056b3; /* Cor de fundo escura ao passar o mouse */
+    background-color: var(--color-link); /* Fundo dourado claro */
     transition: background-color 0.3s ease; /* Transição suave de cor */
 }
 

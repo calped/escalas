@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar Plantão - Escalas Médicas</title>
-    <link rel="stylesheet" href="css/stylesglobal.css">
+    <link rel="stylesheet" href="css/stylesglobal1.css">
     <!-- Adicionar o SDK do Firebase -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
@@ -21,7 +21,10 @@
         </button>
         <ul id="menu">
             <li><a href="index.html">Home</a></li>
+            <li><a href="admin.html">Administrador</a></li>
             <li><a href="calendario.html">Calendário</a></li>
+            
+            <li><a href="reset-password.html">Redefinir senha</a></li>
             <li id="logoutButton" style="display:none;"><a href="#" onclick="logout()">Logout</a></li>
         </ul>
     </nav>
@@ -68,12 +71,39 @@
         </section>
     </main>
     <footer>
-        <p>&copy; <span id="copyright-year"></span> Escalas Médicas. Todos os direitos reservados. | <a href="mailto:calculospediatricos@gmail.com">calculospediatricos@gmail.com</a></p>
+        <p>&copy; <span id="copyright-year"></span> Escalas Médicas. Todos os direitos reservados. | <a href="mailto:calculospediatricos@gmail.com">CalPed - Calculadoras Pediátricas</a></p>
     </footer>
 
     <script src="js/menuresponsivo.js"></script> <!-- Script para o menu responsivo -->
     <script src="js/configfirebase.js"></script>
     <script src="js/logout.js"></script>
     <script src="js/addplantao.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+    }
+
+    var auth = firebase.auth();
+
+    auth.onAuthStateChanged(function(user) {
+        if (user) {
+            user.getIdTokenResult().then((idTokenResult) => {
+                if (!idTokenResult.claims.admin) {
+                    // Se o usuário não for administrador, redirecionar ou exibir mensagem
+                    window.location.href = 'acesso-negado.html'; // Redireciona para uma página de acesso negado
+                    // Ou exibe uma mensagem de acesso negado
+                    // document.body.innerHTML = '<h1>Acesso negado. Somente administradores podem acessar esta página.</h1>';
+                }
+            }).catch((error) => {
+                console.error('Erro ao verificar as claims do usuário:', error);
+            });
+        } else {
+            window.location.href = 'index.html'; // Redireciona para a página de login se o usuário não estiver autenticado
+        }
+    });
+});
+
+</script> 
 </body>
 </html>

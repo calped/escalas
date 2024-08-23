@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         auth.createUserWithEmailAndPassword(userEmail, defaultPassword)
         .then(function(userCredential) {
             var user = userCredential.user;
-
+            
             // Adicionar usuário ao Firestore
             return db.collection('users').doc(user.uid).set({
                 email: userEmail,
@@ -54,12 +54,12 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(function() {
             document.getElementById('userMessage').innerText = 'Usuário adicionado com sucesso!';
-            
+
             // Reautenticar o administrador
             return auth.updateCurrentUser(currentUser);
         })
         .then(function() {
-            // Recarregar a página para permitir a adição de mais usuários
+            // Atualiza a página para permitir a adição de mais usuários
             setTimeout(function() {
                 location.reload();
             }, 2000);
